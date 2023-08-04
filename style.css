@@ -99,6 +99,7 @@ body {
   box-shadow: 2px 2px rgb(122, 78, 143);
   max-width: 19.0437rem;
   min-width: 19.0437rem;
+  overflow: hidden;
 }
 
 .calculator_field {
