@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>на 0 делить нельзя</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="calculator">
+        <div class="calculator_field">
+          <video class="video hidden" src="videoplayback.mp4"></video>
+          <div id="result" class="result">0</div>
+        </div>
+        <div class="calculator_keys">
+          <div class="keys_row">
+            <button class="key">7</button>
+            <button class="key">8</button>
+            <button class="key">9</button>
+            <button id="clear" class="key function_key c">C</button>
+          </div>
+
+          <div class="keys_row">
+            <button class="key">4</button>
+            <button class="key">5</button>
+            <button class="key">6</button>
+            <button id="minus" class="key function_key">-</button>
+          </div>
+
+          <div class="keys_row">
+            <button class="key">1</button>
+            <button class="key">2</button>
+            <button class="key">3</button>
+            <button id="plus" class="key function_key">+</button>
+          </div>
+
+          <div class="keys_row">
+            <button class="key">0</button>
+            <button id="multiply" class="key function_key">*</button>
+            <button id="divide" class="key function_key">/</button>
+            <button id="equals" class="key function_key">=</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
