@@ -82,6 +82,7 @@ body {
           user-select: none;
   min-width: 20rem;
   min-height: 30rem;
+  background-color: rgb(199, 214, 214);
 }
 
 .wrapper {
