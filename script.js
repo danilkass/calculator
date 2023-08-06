@@ -41,8 +41,6 @@ document.querySelector('.calculator_keys').onclick = (event) => {
 	if (digit.includes(btn)) {
 		
 
-
-
 		if (b === '' && sign === '') {
 			if (btn === "." && a.includes(".")) {
 				 result.textContent = a;
@@ -78,27 +76,41 @@ document.querySelector('.calculator_keys').onclick = (event) => {
 	
 	}
 
-	// Обработать запрет на ввод / * первыми знаками 
-	// При расчёте если знак есть и нажат знак знаку присваивать новое значение
-
 	if (action.includes(btn)) {
-		if (sign === '') {
-			finish = false;
-			sign = btn;
-      	result.textContent = sign;
-   		console.log(sign);
-    	} 
+
+
+		if (a === '' && (btn === '*' || btn === '/')) return
 		else {
-      	count();
-			finish = false;
-			sign = btn;
-			result.textContent = sign
-			console.log(sign);
-   	} 
+
+			if (sign === '') {
+				finish = false;
+				sign = btn;
+				result.textContent = sign;
+				console.log(sign);
+			 } else if (a !== '' && b !== '' && sign !== '' && action.includes(btn) ) {
+				count();
+				sign = btn;
+				result.textContent = sign;
+				console.log(sign);
+			 } else if (sign !== '') {
+				sign = btn;
+				result.textContent = sign;
+				finish = false;
+				console.log(sign);
+			 } else {
+				count();
+				finish = false;
+				sign = btn;
+				result.textContent = sign;
+				console.log(sign);
+			 }
+			 
+		}
 
 	}
 
-	
+
+
 	if (btn === '=') count();
 
 }
