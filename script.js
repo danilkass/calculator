@@ -1,3 +1,4 @@
+
 let a = ''; 
 let b = ''; 
 let sign = ''; 
@@ -111,7 +112,13 @@ document.querySelector('.calculator_keys').onclick = (event) => {
 
 
 
-	if (btn === '=') count();
+	if (btn === '=') {
+		if (b ==='' && sign === ''){
+			result.textContent = a;
+		} else if(b ==='' && sign !== ''){
+			result.textContent = sign;
+		} else count();
+}
 
 }
 
