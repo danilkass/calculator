@@ -1,9 +1,9 @@
-let a = ''; //first number
-let b = ''; //second number
-let sign = ''; // знак операции
+let a = ''; 
+let b = ''; 
+let sign = ''; 
 let finish = false;
 
-const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 const action = ['-','+','*','/',];
 
 const result = document.getElementById('result');
@@ -13,9 +13,11 @@ function clear() {
 	b = '';
 	sign = '';
 	finish = false;
-	result.textContent = 0;
+	result.textContent = '';
 }
+
 document.getElementById('clear').onclick = clear;
+
 
 const video = document.querySelector('.video');
 	startVideo = function() {
@@ -38,44 +40,63 @@ document.querySelector('.calculator_keys').onclick = (event) => {
 		
 	if (digit.includes(btn)) {
 		
-		if (b==='' && sign === '') {
-			a += btn;
+
+
+
+		if (b === '' && sign === '') {
+			if (btn === "." && a.includes(".")) {
+				 result.textContent = a;
+				 return btn;
+			}
+			a = a + btn;
 			result.textContent = a;
-		}
-		
-		else if (a!== '' && b!=='' && finish) {
-				b = btn;
-				finish = false;
-				result.textContent = b;
-		}
-		
-		else{
-			b += btn;
+			finish = false;
+	  } else {
+			if (btn === "." && b.includes(".")) {
+				 result.textContent = b;
+				 finish = false;
+				 return btn;
+			}
+			b = b + btn;
 			result.textContent = b;
-		}
-		
-		console.log (a, b, sign);
+			finish = false;
+	  }
+
+	  if (b === '' && sign === '' && finish) {
+			if (btn === "." && a.includes(".")) {
+				 result.textContent = a;
+				 return btn;
+			}
+			a = a + btn;
+			result.textContent = a;
+			finish = false;
+	  }
+
+
+		console.log (a, sign, b);
 		return;
+	
 	}
-		
+
+	 
 
 	if (action.includes(btn)) {
-
-		
 		if (sign === '') {
-      // If not, set sign to btn and update the result.textContent
-     		sign = btn;
+			finish = false;
+			sign = btn;
       	result.textContent = sign;
    		console.log(sign);
-    	} else {
-      // If yes, call the count() function
+    	} 
+		else {
       	count();
+			finish = false;
 			sign = btn;
 			result.textContent = sign
 			console.log(sign);
    	} 
 
 	}
+
 	
 	if (btn === '=') count();
 
@@ -84,33 +105,32 @@ document.querySelector('.calculator_keys').onclick = (event) => {
 const count = function() {
 	switch (sign) {
 		case '+':
-			a = (+a) + (+b);
-			
-			break;
-		case '-':
-			a = a - b;
-			
-			break;
-		case '*':
-			a = a * b;
-			
-			break;
-		case '/':
-			if (b === '0'){
-				startVideo();
-				result.textContent = '0';
-				a = '';
-				
-				return;
-			}
-			a = (a / b).toFixed(1);
-			
-			break;
-	}
+            a = (parseFloat(a) + parseFloat(b)).toFixed(2);
+            break;
+        case '-':
+            a = (parseFloat(a) - parseFloat(b)).toFixed(2);
+            break;
+        case '*':
+            a = (parseFloat(a) * parseFloat(b)).toFixed(2);
+            break;
+        case '/':
+            if (b === '0') {
+                startVideo();
+                result.textContent = '0';
+                a = '';
+                b = '';
+                return;
+            }
+            a = (parseFloat(a) / parseFloat(b)).toFixed(2);
+            break;
+    }
+
+	a = a.toString();
 	b = '';
 	sign = '';
 	finish = true;
 	result.textContent = a;
-	console.log (a, b, sign);
+	console.log (a, sign, b);
+	
 }
 
