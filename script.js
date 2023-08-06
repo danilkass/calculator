@@ -78,7 +78,8 @@ document.querySelector('.calculator_keys').onclick = (event) => {
 	
 	}
 
-	 
+	// Обработать запрет на ввод / * первыми знаками 
+	// При расчёте если знак есть и нажат знак знаку присваивать новое значение
 
 	if (action.includes(btn)) {
 		if (sign === '') {
