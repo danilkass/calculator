@@ -1,4 +1,3 @@
-
 let a = ''; 
 let b = ''; 
 let sign = ''; 
@@ -38,44 +37,48 @@ document.querySelector('.calculator_keys').onclick = (event) => {
 	result.textContent = '';
 		
 	const btn = event.target.textContent
-		
-	if (digit.includes(btn)) {
-		
-
-		if (b === '' && sign === '') {
-			if (btn === "." && a.includes(".")) {
-				 result.textContent = a;
-				 return btn;
-			}
-			a = a + btn;
-			result.textContent = a;
-			finish = false;
-	  } else {
-			if (btn === "." && b.includes(".")) {
-				 result.textContent = b;
-				 finish = false;
-				 return btn;
-			}
-			b = b + btn;
-			result.textContent = b;
-			finish = false;
-	  }
-
-	  if (b === '' && sign === '' && finish) {
-			if (btn === "." && a.includes(".")) {
-				 result.textContent = a;
-				 return btn;
-			}
-			a = a + btn;
-			result.textContent = a;
-			finish = false;
-	  }
-
-
-		console.log (a, sign, b);
-		return;
 	
-	}
+	if (digit.includes(btn)) {
+		if (b === '' && sign === '') {
+			 if (btn === "." && a.includes(".")) {
+				  result.textContent = a;
+				  return btn;
+			 }
+			 if (a.length < 8) {
+				  a = a + btn;
+				  result.textContent = a;
+				  finish = false;
+			 } else result.textContent = a;
+		} else {
+			 if (btn === "." && b.includes(".")) {
+				  result.textContent = b;
+				  finish = false;
+				  return btn;
+			 }
+			 if (b.length < 8) {
+				  b = b + btn;
+				  result.textContent = b;
+				  finish = false;
+			 } else result.textContent = b;
+		}
+  
+		if (b === '' && sign === '' && finish) {
+			 if (btn === "." && a.includes(".")) {
+				  result.textContent = a;
+				  return btn;
+			 }
+			 if (a.length < 8) {
+				  a = a + btn;
+				  result.textContent = a;
+				  finish = false;
+			 } else result.textContent = a;
+		}
+  
+		console.log(a, sign, b);
+		return;
+  }
+  
+
 
 	if (action.includes(btn)) {
 
@@ -119,7 +122,6 @@ document.querySelector('.calculator_keys').onclick = (event) => {
 			result.textContent = sign;
 		} else count();
 }
-
 }
 
 const count = function() {
@@ -149,7 +151,7 @@ const count = function() {
 	b = '';
 	sign = '';
 	finish = true;
-	result.textContent = a;
+	result.textContent = a.slice(0, 8);;
 	console.log (a, sign, b);
 	
 }

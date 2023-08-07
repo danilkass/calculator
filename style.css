@@ -114,10 +114,12 @@ body {
 .calculator_field {
   max-height: 5rem;
   min-height: 5rem;
+  color: rgba(80, 0, 56, 0.973);
   border: 3px solid rgb(85, 85, 85);
   border-radius: 5px;
   background-color: rgb(97, 255, 255);
   margin-bottom: 10px;
+  padding: .2rem .375rem;
   overflow: hidden;
   -webkit-user-select: all;
      -moz-user-select: all;
@@ -143,7 +145,6 @@ body {
 	gap: 0.5rem;
 }
 
-
 .key {
   background-color: rgba(80, 0, 56, 0.973);
   border: 1px solid rgb(53, 53, 53);
@@ -151,34 +152,14 @@ body {
   box-shadow: 1px 2px rgb(53, 53, 53);
   color: white;
   font-size: 2.5rem;
-  /* height: 3.5rem;
-  width: 3.5rem; */
   text-align: center;
 }
 
 .long_key{
-	/* width: 7.9375rem; */
-	grid-column-start: 1 ;
-	grid-column-end: 3 ;
+	grid-column: span 2;
 }
 .long_key_h{
-	grid-column: 4;
-	grid-row-start: 4;
-	grid-row-end: 6;
-	
-	/* background-color: rgba(80, 0, 56, 0.973);
-	border: 1px solid rgb(53, 53, 53);
-	border-radius: 4px;
-	box-shadow: 1px 2px rgb(53, 53, 53);
-	color: white;
-	font-size: 2.5rem;
-	height: 3.5rem;
-	width: 3.5rem;
-	text-align: center;
-
-	
-	transform: scaleY(2.16) translate(.0620rem,-1rem);
-	 */
+	grid-row: span 2;
 }
 
 .key:active {
