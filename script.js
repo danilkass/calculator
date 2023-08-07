@@ -14,6 +14,7 @@ function clear() {
 	sign = '';
 	finish = false;
 	result.textContent = '';
+	console.log(a, sign, b);
 }
 
 document.getElementById('clear').onclick = clear;
