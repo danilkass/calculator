@@ -1,4 +1,4 @@
 # js_calculator
 
-- Мой первый проект, который я написал в когда начал учить js
+- Мой первый проект на js
 https://danilkass.github.io/calculator/
